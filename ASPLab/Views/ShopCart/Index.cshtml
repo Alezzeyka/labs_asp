@@ -1,0 +1,29 @@
+﻿@model ShopCartViewModel
+<!doctype html>
+<html>
+<head>
+        <meta name="viewport" content="width-device-width"/>
+        <title>List</title>
+</head>
+<body>
+    <hr />
+    <hr/>
+    <h3>Корзина</h3>
+    <div class="container">
+        @{
+            float sum = 0;
+            foreach (var el in Model.ShopCart.listCartItems)
+            {
+            <div class="alert-warning mt-3">
+                <b>Посуда:</b> @el.Dish.Name<br/>
+                <b>Цена:</b> @el.Dish.Price.ToString("c")
+                </div>
+                sum += el.Dish.Price;
+            }
+            <b>Сумма:</b>@sum.ToString("c");
+        }
+     <hr/>
+     <a class="btn btn-danger m-5" asp-controller="Order" asp-action="AddOrder">Оплатить</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿<!doctype html>
+<html>
+<head>
+        <meta name="viewport" content="width-device-width"/>
+        <title>List</title>
+</head>
+<body>
+    <div class="row mt-5 mb-2">
+        <h1>@Model.currCategory.Name</h1>
+        @{
+        foreach (Dish dish in Model.AllDishes)
+        {
+            @Html.Partial("AllDish", dish)
+        } }
+    </div>
+</body>
+</html>
